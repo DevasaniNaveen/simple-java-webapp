@@ -10,6 +10,14 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
+    <name>simple-java-webapp</name> <!-- Optional but helps with Sonar metadata -->
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -22,6 +30,7 @@
     <build>
         <finalName>webapp</finalName>
         <plugins>
+            <!-- Compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -32,6 +41,7 @@
                 </configuration>
             </plugin>
 
+            <!-- WAR packaging plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
