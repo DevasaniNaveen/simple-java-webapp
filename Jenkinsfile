@@ -37,13 +37,15 @@ pipeline {
         }
         stage('Dependency-Check') {
             steps {
-                sh '''
-                   /opt/dependency-check/bin/dependency-check.sh \
-                   --project simple-java-webapp \
-                   --scan . \
-                   --out dependency-check-report \
-                   --noupdate
-                '''
+                withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_KEY')]) {
+                    sh '''
+                    /opt/dependency-check/bin/dependency-check.sh \
+                    --project simple-java-webapp \
+                    --scan . \
+                    --out dependency-check-report \
+                    --nvdApiKey=$NVD_KEY
+                    '''
+                }
             }
         }
 
