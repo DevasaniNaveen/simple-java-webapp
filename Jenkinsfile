@@ -75,7 +75,7 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
-                sh 'docker run -d --name webapp -p 9090:9090 simple-java-webapp:latest'
+                sh 'docker run -d --name webapp -p 9090:8080 simple-java-webapp:latest'
             }
         }
     }
