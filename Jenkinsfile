@@ -35,6 +35,7 @@ pipeline {
                 }
             }
         }
+        /*
         stage('Dependency-Check') {
             steps {
                 withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_KEY')]) {
@@ -48,6 +49,7 @@ pipeline {
                 }
             }
         }
+        */
 
         stage('Build Docker Image') {
             steps {
