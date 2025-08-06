@@ -38,10 +38,11 @@ pipeline {
         stage('Dependency-Check') {
             steps {
                 sh '''
-                    /opt/dependency-check/bin/dependency-check.sh \
-                    --project simple-java-webapp \
-                    --scan . \
-                    --out dependency-check-report
+                   /opt/dependency-check/bin/dependency-check.sh \
+                   --project simple-java-webapp \
+                   --scan . \
+                   --out dependency-check-report \
+                   --noupdate
                 '''
             }
         }
